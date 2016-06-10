@@ -1,12 +1,33 @@
-<form method="post">
-  <input type="text" name="user_mood">
-  <input type="submit" value="Shout!">
-  
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <title>Classical Moods</title>
+  </head>
+  <body>
+    <div class="container">
 
-<form action="">
-  <input type="radio" name="mood" value="sad"> Sad<br>
-  <input type="radio" name="mood" value="pensive"> Pensive<br>
-  <input type="radio" name="mood" value="neutral"> Neutral<br>
-<input type="radio" name="mood" value="happy"> Happy
-</form>
+      <h1>Classical Moods</h1>
+
+      <!-- <form method="post">
+        <input type="text" name="user_mood">
+        <input type="submit" value="Shout!">
+      </form> -->
+
+      <h3>Please select your mood</h3>
+
+      <form method="post">
+        <input type="radio" name="user_mood" value="sad"> Sad<br>
+        <input type="radio" name="user_mood" value="pensive"> Pensive<br>
+        <input type="radio" name="user_mood" value="neutral"> Neutral<br>
+        <input type="radio" name="user_mood" value="happy"> Happy<br><br />
+        <input type="submit" value="Shout!">
+      </form>
+    </div>
+
+  </body>
+</html>
