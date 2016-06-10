@@ -20,12 +20,12 @@ import urllib
 import webapp2
 import jinja2
 
-from apiclient.discovery import build
-from optparse import OptionParser
+# from apiclient.discovery import build
+# from optparse import OptionParser 
 
-from random import randint
+from random import randint # random intergers for selection
 
-my_env = jinja2.Environment(
+my_env = jinja2.Environment( # jinja evr that we copied from web
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
@@ -37,16 +37,16 @@ my_env = jinja2.Environment(
 
 
 
-def choose_mood (mood): # choose_mood is a function
+def choose_mood (mood): # choose_mood is a function 
     # print 'Your mood is ' + mood
     # return 'Here is a song ' + mood_dictionary[mood][1]
 
-    song_count = len(mood_dictionary[mood])
+    song_count = len(mood_dictionary[mood]) # song is taking the length of the mood dictionary"mood" e.g happy
 
-    random_song_number = randint(0, song_count-1)
+    random_song_number = randint(0, song_count-1) #rendering the numbers from 0-7 for happy randit, len(function)
     return mood_dictionary[mood][random_song_number]
 
-mood_dictionary = {
+mood_dictionary = {                              # dictionary key, value, pairs ( here is list of things). We can associate the song with URL
     "happy" : [
         "Marriage of Figaro by Mozart",
         "Barber of Seville by Rossini",
@@ -133,15 +133,16 @@ class MainHandler(webapp2.RequestHandler):
 
 class OurHandler(webapp2.RequestHandler): # we copied this handler from main one
   
-  def get(self): # send get request 
+  def get(self):                           # send get request 
     mood_template = my_env.get_template('templates/form.html')
     self.response.write(mood_template.render())
 
   def post(self):
     my_result=self.request.get("user_mood") # my_result var stores form value ( form.html)
-    print (my_result)
+    print (my_result)                                                 # for debugging 
 
-    my_dic = {"song_choise":choose_mood(my_result)} # my dictionary choose_mood is a function
+    finalSong = choose_mood(my_result) 
+    my_dic = {"song_choise":finalSong}                   # my dictionary choose_mood is a function
     music_template = my_env.get_template('templates/results.html')
     self.response.write(music_template.render(my_dic))
 
