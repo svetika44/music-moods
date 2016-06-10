@@ -36,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class OurHandler(webapp2.RequestHandler): # we copied this handler from main one
   
-  def get(self):
+  def get(self): # send get request 
     mood_template = my_env.get_template('templates/form.html')
     self.response.write(mood_template.render())
 
